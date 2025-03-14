@@ -1,0 +1,147 @@
+[
+  {
+    "name": "Tender Juicy Hotdog",
+    "price": 25,
+    "vendor": "Purefoods",
+    "rating": 4,
+    "remaining": 100
+  },
+  {
+    "name": "San Miguel Light",
+    "price": 109,
+    "vendor": "San Miguel",
+    "rating": 5,
+    "remaining": 50
+  },
+  {
+    "name": "Tocino",
+    "price": 309,
+    "vendor": "Pampanga's Best",
+    "rating": 4.9,
+    "remaining": 75
+  },
+  {
+    "name": "Armchair",
+    "price": 125,
+    "vendor": "Pampanga's Best",
+    "rating": 4.8,
+    "remaining": 20
+  },
+  {
+    "name": "Bar Stool",
+    "price": 40,
+    "vendor": "Purefoods",
+    "rating": 4.6,
+    "remaining": 30
+  },
+  {
+    "name": "Dining Table",
+    "price": 42,
+    "vendor": "Purefoods",
+    "rating": 4.55,
+    "remaining": 15
+  },
+  {
+    "name": "Emperor Bed",
+    "price": 23,
+    "vendor": "Purefoods",
+    "remaining": 10
+  },
+  {
+    "name": "Entertainment Center",
+    "price": 59,
+    "featured": true,
+    "vendor": "Purefoods",
+    "remaining": 5
+  },
+  {
+    "name": "High-Back Bench",
+    "price": 39,
+    "featured": true,
+    "vendor": "Purefoods",
+    "remaining": 12
+  },
+  {
+    "name": "Leather Sofa",
+    "price": 99,
+    "vendor": "Purefoods",
+    "remaining": 8
+  },
+  {
+    "name": "Modern Bookshelf",
+    "price": 31,
+    "featured": true,
+    "vendor": "San Miguel",
+    "remaining": 22
+  },
+  {
+    "name": "Modern Poster",
+    "price": 30,
+    "vendor": "San Miguel",
+    "remaining": 40
+  },
+  {
+    "name": "Shelf",
+    "price": 30,
+    "vendor": "San Miguel",
+    "remaining": 25
+  },
+  {
+    "name": "Simple Chair",
+    "price": 109,
+    "vendor": "San Miguel",
+    "remaining": 18
+  },
+  {
+    "name": "Sofa Set",
+    "price": 129,
+    "vendor": "San Miguel",
+    "remaining": 10
+  },
+  {
+    "name": "Suede Armchair",
+    "price": 15,
+    "vendor": "Purefoods",
+    "remaining": 35
+  },
+  {
+    "name": "Utopia Sofa",
+    "price": 79,
+    "featured": true,
+    "vendor": "San Miguel",
+    "remaining": 14
+  },
+  {
+    "name": "Vase Table",
+    "price": 120,
+    "featured": true,
+    "vendor": "San Miguel",
+    "remaining": 7
+  },
+  {
+    "name": "Wooden Bed",
+    "price": 25,
+    "vendor": "San Miguel",
+    "remaining": 11
+  },
+  {
+    "name": "Wooden Desk",
+    "price": 40,
+    "vendor": "Pampanga's Best",
+    "remaining": 22
+  },
+  {
+    "name": "Wooden Table",
+    "price": 23,
+    "featured": true,
+    "vendor": "Pampanga's Best",
+    "remaining": 19
+  },
+  {
+    "name": "A First Wooden Table",
+    "price": 23,
+    "featured": true,
+    "vendor": "Pampanga's Best",
+    "remaining": 13
+  }
+]

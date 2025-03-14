@@ -1,8 +1,13 @@
+import numericOperators from "../maps/numeric-operator.js";
 import Product from "../models/product.js";
 import _ from "lodash";
 
 const index = async (req, res, next) => {
-    const products = await Product.find();
+    if (req.query.featured) {
+        return allFilters(req, res, next);
+    }
+    // inefficient
+    const products = await Product.find({}).sort('name');
     const { min_price: range, min_stock: minStock } = req.query;
     if (! _.isEmpty(range) && ! _.isEmpty(minStock)) {
         const filteredProducts = products.filter((product) => {
@@ -48,7 +53,10 @@ const show = async (req, res, next) => {
 }
 
 const store = async (req, res, next) => {
-    await Product.create(req.body);
+    await Product.create(req.body, {
+        new: true,
+        runValidators: true,
+    });
     return res.status(201).json({
         data: {
             success: true,
@@ -84,4 +92,46 @@ const destroy = async (req, res, next) => {
     return res.json({ message: "Deleted successfully" }).status(204);
 }
 
-export const productController = { index, show, store, update, destroy };
+const allFilters = async (req, res, next) => {
+    const { featured, vendor, name, sort, fields, numericFilters } = req.query;
+    let queryObject = {};
+    if (featured) {
+        queryObject.featured = featured === 'true' ? true : false;
+    }
+    if (vendor) {
+        queryObject.vendor = vendor;
+    }
+    if (name) {
+        queryObject.name = name;
+    }
+    if (numericFilters) {
+        const regex = /\b(<|>|=|>=|<|<=)\b/g;
+        let filters = numericFilters.replace(regex, (match) => `-${numericOperators}-`);
+        const options = ['price', 'rating'];
+        filters = filters.split(',').forEach((item) => {
+            const [field, operator, value] = item.split('-');
+            if (options.includes(field)) {
+                queryObject[field] = { [operator]: Number(value) };
+            }
+        });
+    }
+    let result = Product.find(queryObject);
+    if (sort) {
+        const sortList = sort.split(',').join(' ');
+        result = result.sort(sortList);
+    } else {
+        result = result.sort('createdAt');
+    }
+    if (fields) {
+        const fieldList = fields.split(',').join(' ');
+        result = result.select(fieldList);
+    }
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+    result = result.skip(skip).limit(limit);
+    const products = await result;
+    return res.status(200).json({ totalHits: products.length, data: products });
+}
+
+export const productController = { index, show, store, update, destroy, allFilters };

@@ -15,6 +15,21 @@ const productSchema = new Schema({
     remaining: {
         type: Number,
         default: 0,
+    },
+    featured: {
+        type: Boolean,
+        default: false,
+    }, 
+    rating: {
+        type: Number,
+        default: 0,
+    },
+    vendor: {
+        type: String,
+        enum: {
+            values: ["Purefoods", "San Miguel", "Pampanga's Best"],
+            message: 'Vendor named {VALUE} was not found',
+        }
     }},
     {
         timestamps: true,
